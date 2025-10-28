@@ -1,0 +1,5 @@
+{
+  "name": "Ping Pong Scorekeeper",
+  "description": "A mobile-first web application to track ping pong matches, manage players, and view rankings, designed with Material Design 3 aesthetics.",
+  "requestFramePermissions": []
+}
