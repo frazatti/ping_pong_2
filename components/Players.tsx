@@ -22,11 +22,11 @@ const PlayerForm: React.FC<{ onAddPlayer: (name: string) => void }> = ({ onAddPl
         type="text"
         value={name}
         onChange={(e) => setName(e.target.value)}
-        placeholder="New player name"
+        placeholder="Nome do novo jogador"
         className="flex-grow p-3 bg-surface-variant rounded-full text-on-surface-variant outline-none border-2 border-outline focus:border-primary"
       />
       <button type="submit" className="px-6 bg-primary text-white font-semibold rounded-full shadow-lg">
-        Add
+        Adicionar
       </button>
     </form>
   );
@@ -36,7 +36,7 @@ const PlayerList: React.FC<{ players: Player[] }> = ({ players }) => {
     if (players.length === 0) {
         return (
             <div className="text-center p-4 bg-secondary-container text-on-secondary-container rounded-2xl">
-                <p>No players yet. Add one above!</p>
+                <p>Nenhum jogador ainda. Adicione um acima!</p>
             </div>
         );
     }
@@ -57,7 +57,7 @@ const Players: React.FC<PlayersProps> = ({ players, onAddPlayer }) => {
   return (
     <div>
       <PlayerForm onAddPlayer={onAddPlayer} />
-      <h2 className="text-lg font-bold text-on-surface mb-4">Registered Players</h2>
+      <h2 className="text-lg font-bold text-on-surface mb-4">Jogadores Cadastrados</h2>
       <PlayerList players={players} />
     </div>
   );

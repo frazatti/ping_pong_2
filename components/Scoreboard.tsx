@@ -67,7 +67,7 @@ const Scoreboard: React.FC<ScoreboardProps> = ({ players, onAddMatch }) => {
   if (players.length < 2) {
     return (
       <div className="text-center p-4 bg-secondary-container text-on-secondary-container rounded-2xl">
-        <p>You need at least two players to start a match. Please add players in the 'Players' tab.</p>
+        <p>Você precisa de pelo menos dois jogadores para iniciar uma partida. Por favor, adicione jogadores na aba 'Jogadores'.</p>
       </div>
     );
   }
@@ -81,7 +81,7 @@ const Scoreboard: React.FC<ScoreboardProps> = ({ players, onAddMatch }) => {
     const player = players.find(p => p.id === playerId);
     return (
       <div className={`flex flex-col items-center justify-between p-4 rounded-3xl transition-all duration-300 ${isWinner ? 'bg-tertiary-container' : 'bg-surface-variant'}`}>
-        <h2 className="text-xl font-bold text-on-surface-variant truncate max-w-full">{player?.name || 'Select Player'}</h2>
+        <h2 className="text-xl font-bold text-on-surface-variant truncate max-w-full">{player?.name || 'Selecione o Jogador'}</h2>
         <p className="text-7xl font-light my-6 text-on-surface">{score}</p>
         <button
           onClick={onIncrement}
@@ -112,13 +112,13 @@ const Scoreboard: React.FC<ScoreboardProps> = ({ players, onAddMatch }) => {
 
       {gameOver && (
         <div className="text-center p-4 bg-tertiary-container text-on-tertiary-container rounded-2xl animate-pulse">
-          <p className="font-bold text-lg">Game Over! Winner is {players.find(p => p.id === winnerId)?.name}</p>
+          <p className="font-bold text-lg">Fim de Jogo! O vencedor é {players.find(p => p.id === winnerId)?.name}</p>
         </div>
       )}
       
       <div className="flex justify-center items-center gap-4 mt-4">
-        <button onClick={handleReset} className="py-3 px-6 bg-secondary-container text-on-secondary-container font-semibold rounded-full shadow-sm">Reset</button>
-        <button onClick={handleFinishMatch} disabled={!gameOver} className="py-3 px-6 bg-primary text-white font-semibold rounded-full shadow-lg disabled:bg-outline disabled:cursor-not-allowed">Finish & Save Match</button>
+        <button onClick={handleReset} className="py-3 px-6 bg-secondary-container text-on-secondary-container font-semibold rounded-full shadow-sm">Resetar</button>
+        <button onClick={handleFinishMatch} disabled={!gameOver} className="py-3 px-6 bg-primary text-white font-semibold rounded-full shadow-lg disabled:bg-outline disabled:cursor-not-allowed">Finalizar e Salvar Partida</button>
       </div>
 
     </div>

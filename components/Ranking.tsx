@@ -11,7 +11,7 @@ const Ranking: React.FC<RankingProps> = ({ players }) => {
   if (players.length === 0) {
     return (
       <div className="text-center p-4 bg-secondary-container text-on-secondary-container rounded-2xl">
-        <p>No players available. Add some players to see the ranking.</p>
+        <p>Nenhum jogador disponível. Adicione alguns jogadores para ver o ranking.</p>
       </div>
     );
   }
@@ -41,9 +41,9 @@ const Ranking: React.FC<RankingProps> = ({ players }) => {
             <div className="flex-grow ml-4">
               <p className="text-lg font-bold text-on-surface-variant">{player.name}</p>
               <div className="flex text-sm text-on-surface-variant space-x-4">
-                <span>W: {player.wins}</span>
-                <span>L: {player.losses}</span>
-                <span>Win Rate: {winRate.toFixed(1)}%</span>
+                <span>V: {player.wins}</span>
+                <span>D: {player.losses}</span>
+                <span>Taxa de Vit.: {winRate.toFixed(1)}%</span>
               </div>
             </div>
           </div>

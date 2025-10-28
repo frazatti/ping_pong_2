@@ -34,7 +34,7 @@ const BottomNav: React.FC<BottomNavProps> = ({ activeView, setActiveView }) => {
     <nav className="fixed bottom-0 left-0 right-0 bg-surface-variant shadow-[0_-2px_5px_rgba(0,0,0,0.1)] h-20 flex justify-around items-center px-2 pb-2 z-20">
       <div className="w-full max-w-md mx-auto grid grid-cols-3 gap-2">
         <NavItem
-          label="Match"
+          label="Partida"
           icon={<PingPongIcon className="w-6 h-6" />}
           isActive={activeView === 'match'}
           onClick={() => setActiveView('match')}
@@ -46,7 +46,7 @@ const BottomNav: React.FC<BottomNavProps> = ({ activeView, setActiveView }) => {
           onClick={() => setActiveView('ranking')}
         />
         <NavItem
-          label="Players"
+          label="Jogadores"
           icon={<UsersIcon className="w-6 h-6" />}
           isActive={activeView === 'players'}
           onClick={() => setActiveView('players')}

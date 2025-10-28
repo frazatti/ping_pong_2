@@ -12,9 +12,15 @@ const App: React.FC = () => {
   const [matches, setMatches] = useLocalStorage<Match[]>('pingpong_matches', []);
   const [activeView, setActiveView] = useState<ActiveView>('match');
 
+  const viewTitles: Record<ActiveView, string> = {
+    match: 'Partida',
+    ranking: 'Ranking',
+    players: 'Jogadores',
+  };
+
   const addPlayer = (name: string) => {
     if (name.trim() === '' || players.some(p => p.name.toLowerCase() === name.trim().toLowerCase())) {
-      alert("Player name cannot be empty or already exist.");
+      alert("O nome do jogador não pode estar vazio ou já existir.");
       return;
     }
     const newPlayer: Player = {
@@ -34,27 +40,6 @@ const App: React.FC = () => {
     };
     setMatches(prevMatches => [...prevMatches, newMatch]);
 
-    setPlayers(prevPlayers =>
-      prevPlayers.map(p => {
-        if (p.id === newMatch.winnerId) {
-          return { ...p, wins: p.wins + 1 };
-        }
-        if (p.id === newMatch.player1Id || p.id === newMatch.player2Id) {
-          return { ...p, losses: p.losses + 1 };
-        }
-        return p;
-      }).map(p => { // Separate map to update loser
-        if (p.id !== newMatch.winnerId && (p.id === newMatch.player1Id || p.id === newMatch.player2Id)) {
-          return { ...p, losses: p.losses -1 }; // was incremented before, now correct
-        }
-        return p;
-      })
-      .map(p => { // Correct logic
-        if(p.id === match.winnerId) return {...p, wins: p.wins + 1};
-        if(p.id === match.player1Id || p.id === match.player2Id) return {...p, losses: p.losses + 1};
-        return p;
-      })
-    );
      setPlayers(prevPlayers => {
         return prevPlayers.map(p => {
             if (p.id === match.winnerId) {
@@ -95,7 +80,7 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col font-sans text-on-background">
       <header className="bg-surface-variant text-on-surface-variant p-4 shadow-md sticky top-0 z-10">
-        <h1 className="text-xl font-bold text-center capitalize">{activeView}</h1>
+        <h1 className="text-xl font-bold text-center">{viewTitles[activeView]}</h1>
       </header>
       <main className="flex-grow p-4 pb-24 overflow-y-auto">
         {renderContent()}

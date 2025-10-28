@@ -1,5 +1,5 @@
 {
-  "name": "Ping Pong Scorekeeper",
-  "description": "A mobile-first web application to track ping pong matches, manage players, and view rankings, designed with Material Design 3 aesthetics.",
+  "name": "Marcador de Ping Pong",
+  "description": "Um aplicativo web mobile-first para registrar partidas de ping pong, gerenciar jogadores e visualizar rankings, projetado com a estética do Material Design 3.",
   "requestFramePermissions": []
 }
